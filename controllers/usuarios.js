@@ -3,8 +3,18 @@ const bcryptjs = require('bcryptjs');
 
 const Usuario = require('../models/usuario');
 
+const printReq = req =>{
+    console.log({
+        method: req.method,
+        params: req.params,
+        body: req.body
+    });
+};
+
 
 const usuariosGet = async (req = request, res = response) => {
+    printReq(req);
+
     const { limite = 5, desde = 0 } = req.query;
     const filter = { estado: true };
 
@@ -35,6 +45,8 @@ const usuariosGet = async (req = request, res = response) => {
 }
 
 const usuariosPost = async (req = request, res = response) => {
+    printReq(req);
+    
     const { nombre, correo, password, rol } = req.body;
     const usuario = new Usuario({ nombre, correo, password, rol });
 
@@ -55,6 +67,8 @@ const encryptPass = (password) => {
 }
 
 const usuariosPut = async (req = request, res = response) => {
+    printReq(req);
+
     const { id } = req.params;
     const { _id, password, google, correo, ...resto } = req.body;
 
@@ -70,6 +84,7 @@ const usuariosPut = async (req = request, res = response) => {
 }
 
 const usuariosPatch = (req, res = response) => {
+    printReq(req);
 
     res.json({
         msg: 'patch API - controlador'
@@ -77,6 +92,8 @@ const usuariosPatch = (req, res = response) => {
 }
 
 const usuariosDelete = async (req, res = response) => {
+    printReq(req);
+    
     const { id } = req.params;
 
     // Borrado físico
