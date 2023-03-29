@@ -48,7 +48,13 @@ const usuariosPost = async (req = request, res = response) => {
     printReq(req);
     
     const { nombre, correo, password, rol } = req.body;
-    const usuario = new Usuario({ nombre, correo, password, rol });
+    
+    const usuario = new Usuario({
+        nombre,
+        correo,
+        password,
+        rol
+    });
 
     // Encriptar la contraseña
     usuario.password = encryptPass(password);
