@@ -4,11 +4,11 @@ const bcryptjs = require('bcryptjs');
 const Usuario = require('../models/usuario');
 
 const printReq = req =>{
-    console.log({
-        method: req.method,
-        params: req.params,
-        body: req.body
-    });
+    // console.log({
+    //     method: req.method,
+    //     params: req.params,
+    //     body: req.body
+    // });
 };
 
 
