@@ -6,7 +6,8 @@ const printReq = (req = request) =>{
     //     query: req.query,
     //     // headers: req.headers,
     //     params: req.params,
-    //     body: req.body
+    //     body: req.body,
+    //     files: req.files
     // });
 };
 
